@@ -40,6 +40,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="inputBox">
+                            <input placeholder="URL of ur img" name="img" class="input @error('img') is-invalid @enderror"
+                                   value="{{ old('img') }}">
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="col-sm-12">

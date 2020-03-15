@@ -33,6 +33,10 @@
 
     @component('components.forbidden') @endcomponent
 
+@elseif($code === 'error')
+
+    @component('components.error') @endcomponent
+
 @else
 
     @component('components.form') @endcomponent

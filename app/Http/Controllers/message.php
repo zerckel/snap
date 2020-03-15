@@ -122,12 +122,21 @@ class message extends Controller
     }
 
     public function getInfo (Request $request){
+
+
         $this->setName($request->get('name'));
         $this->setMail($request->get('mail'));
         $this->setMessage($request->get('message'));
+        $this->setPathUrl($request->get('img'));
         $this->setObject($request->get('object'));
 
-        $this->insertMessage();
+        if ($this->getMail() === null || $this->getName() ){
+            header("Location: http://127.0.0.1:8000/error");
+            exit();
+        }else{
+            $this->insertMessage();
+        }
+
     }
 
     public function insertMessage()
@@ -136,7 +145,7 @@ class message extends Controller
 
         $this->setCode($code);
 
-        DB::insert('insert into messages (message, code) values (?, ?)', [$this->getMessage(), $code]);
+        DB::insert('insert into messages (message, code, photo_url) values (?, ?, ?)', [$this->getMessage(), $code, $this->getPathUrl()]);
 
         $this->sendMail();
     }

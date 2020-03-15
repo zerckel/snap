@@ -14,8 +14,8 @@ class promptMessage extends Controller
         if ($message->open === 0){
             DB::table('messages')
                 ->where('code', $code)
-                ->update(['open' => 1]);
-            return view('index', ['code' => 'message', 'message' => $message->message ]);
+                ->update(['open' => 1, 'updated_at' => \Carbon\Carbon::now()]);
+            return view('index', ['code' => 'message', 'message' => $message->message, 'url' => $message->photo_url ]);
         }else{
             return view('index', ['code' => 'forbidden']);
         }

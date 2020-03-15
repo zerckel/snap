@@ -17,6 +17,9 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', 'message@showForm');
     Route::post('/', 'message@getInfo');
+    Route::get('/error', function (){
+        return view('index', ['code' => 'error']);
+    });
 
     Route::get('/{code}', function () {
         $code = Route::current()->code;
