@@ -25,5 +25,6 @@ Route::group(['middleware' => ['web']], function () {
         $code = Route::current()->code;
 
         return App::call('App\Http\Controllers\promptMessage@show' ,['code' => $code]);
+
     });
 });

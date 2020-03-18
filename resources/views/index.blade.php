@@ -26,6 +26,7 @@
 
     @component('components.message')
         {{ $message }}
+        <img src="{{ $url }}" alt="something wrong with this image">
     @endcomponent
 
 

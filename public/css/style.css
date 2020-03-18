@@ -27,6 +27,10 @@ body{
     transition: .5s;
     opacity: .5;
 }
+p.message{
+    display: flex;
+    flex-direction: column;
+}
 .inputBox .input{
     position: relative;
     width: 100%;

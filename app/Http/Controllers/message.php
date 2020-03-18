@@ -130,7 +130,7 @@ class message extends Controller
         $this->setPathUrl($request->get('img'));
         $this->setObject($request->get('object'));
 
-        if ($this->getMail() === null || $this->getName() ){
+        if ($this->getMail() === null || $this->getName()=== null ){
             header("Location: http://127.0.0.1:8000/error");
             exit();
         }else{
@@ -145,7 +145,7 @@ class message extends Controller
 
         $this->setCode($code);
 
-        DB::insert('insert into messages (message, code, photo_url) values (?, ?, ?)', [$this->getMessage(), $code, $this->getPathUrl()]);
+        DB::insert('insert into messages (message, code, photo_url, created_at) values (?, ?, ?, ?)', [$this->getMessage(), $code, $this->getPathUrl(), \Carbon\Carbon::now()]);
 
         $this->sendMail();
     }

@@ -16,7 +16,8 @@ class CreateTableMessages extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->text('photo_url');
+            $table->text('photo_url')->default(null);
+            $table->boolean('open')->default(0);
             $table->longText('message');
             $table->char('code');
         });

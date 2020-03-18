@@ -2,7 +2,7 @@
     <div>
         <strong>Here your Snap Mail !</strong> <span class="glyphicon glyphicon-ok">You have <span class="time">10</span> s to see it !</span>
         <hr class="message-inner-separator">
-        <p>
+        <p class="message">
             {{ $slot }}
         </p>
     </div>
